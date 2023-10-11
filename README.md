@@ -46,3 +46,10 @@ docker-compose up
 ユーザネーム：elastic
 パスワード：changeme
 ```
+
+## Kibana server is not ready yet というエラーが出たら
+docker の sysytem volume の容量がいっぱいだったりするのでエラーログを確認すること。
+
+```
+docker system prune --volumes // これで local volumes を削除
+```
