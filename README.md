@@ -53,3 +53,14 @@ docker の sysytem volume の容量がいっぱいだったりするのでエラ
 ```
 docker system prune --volumes // これで local volumes を削除
 ```
+
+## 下記のエラーが出たら
+これは、違うバージョンの kibana で docker-compose up したりすると、
+elasticsearch に index されている、version 情報が食い違っているために起こる。
+```
+docker-elk-kibana-1  |  FATAL  Error: Unable to complete saved object migrations for the [.kibana_task_manager] index: The .kibana_task_manager alias is pointing to a newer version of Kibana: v8.10.2
+```
+下記のシェルで index 情報を消す
+```
+bash allRemoveIndex.sh
+```
